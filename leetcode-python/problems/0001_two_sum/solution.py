@@ -32,13 +32,17 @@
 """
 from typing import List, Optional
 
-def solution(input: List[int]) -> List[int]:
+def solution(input: List[int], target:int) -> List[int]:
     """
     :type input: List[int]
-    :rtype: List[int]
+    :target: int
     """
-    # Your code here
+    for num in range(len(input)):
+        for num2 in range(num+1, len(input)):
+            if input[num] + input[num2] == target:
+                return [num, num2]
+
     return []
 
 if __name__ == "__main__":
-    print(solution([2,7,11,15], 9))  # 修改输入
+    print(solution([2,15,11,7], 9))  # 修改输入

@@ -45,13 +45,30 @@ nums 已按升序排列
 """
 from typing import List, Optional
 
-def solution(input: List[int]) -> int:
+def solution(nums: List[int]) -> int:
     """
     :type input: List[int]
     :rtype: List[int]
     """
-    # Your code here
-    return 0
+    p = len(nums) - 2
+    num = nums[-1]
+    count = 1
+    while p >= 0:
+        if nums[p] == num:
+            count += 1
+            if count > 2:
+                nums.pop(p)
+                p -= 1
+            else:
+                p -= 1
+        else:
+            num = nums[p]
+            count = 1
+            p -= 1
+
+    print(len(nums))
+    print(nums)
+    return len(nums)
 
 if __name__ == "__main__":
-    print(solution([2,7,11,15], 9))  # 修改输入
+    print(solution([1,3]))
